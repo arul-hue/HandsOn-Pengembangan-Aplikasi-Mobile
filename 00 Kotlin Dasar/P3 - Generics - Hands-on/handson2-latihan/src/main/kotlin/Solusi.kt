@@ -18,9 +18,7 @@ fun main() {
 }
 
 // Penjelasan:
-// - <T : Comparable<T>>: Bounded type parameter (upper bound). T boleh tipe apa saja, asal bisa dibandingkan dengan sesama T.
-// - fun <T> ...: Fungsi generik, jadi satu findMax dipakai untuk Int, Double, dan String.
-// - throw: Melempar exception kalau list kosong, supaya tidak ada hasil yang tidak masuk akal.
-// - var max = items[0]: var karena nilainya akan diganti; tipenya di-infer menjadi T.
-// - for (item in items): Loop untuk mengecek tiap elemen list.
-// - compareTo: Hasilnya positif jika item lebih besar dari max, nol jika sama, negatif jika lebih kecil.
+// - <T : Comparable<T>> artinya T boleh tipe apa saja asal bisa dibandingkan
+// - makanya satu findMax bisa dipakai buat Int, Double, dan String
+// - kalau list kosong, lempar IllegalArgumentException
+// - item.compareTo(max) > 0 artinya item lebih besar dari max, jadi max diganti

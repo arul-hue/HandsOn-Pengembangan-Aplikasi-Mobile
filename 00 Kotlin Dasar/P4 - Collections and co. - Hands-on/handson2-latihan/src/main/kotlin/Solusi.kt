@@ -26,10 +26,7 @@ fun main() {
 }
 
 // Penjelasan:
-// - groupBy: Mengelompokkan list menjadi Map<key, List<elemen>> berdasarkan key dari lambda.
-// - mapValues: Mengubah tiap value di Map (key tetap), hasilnya Map baru.
-// - sumOf: Menjumlahkan nilai yang diambil dari tiap elemen (di sini nominal).
-// - associateBy: Mengubah List menjadi Map dengan key dari lambda dan value berupa elemen itu sendiri.
-// - Map [] : byId["TRX03"] memanggil get(key), hasilnya nullable (Transaksi?).
-// - data class: toString otomatis berbentuk Transaksi(id=..., kategori=..., nominal=...).
-// - String template: ${...} menyisipkan hasil ekspresi ke dalam string.
+// - groupBy: kelompokkan transaksi per kategori, hasilnya Map<String, List<Transaksi>>
+// - mapValues: ganti tiap list jadi total nominalnya pakai sumOf
+// - associateBy { it.id }: ubah list jadi Map dengan id sebagai key
+// - byId["TRX03"] hasilnya nullable, karena key-nya bisa saja tidak ada

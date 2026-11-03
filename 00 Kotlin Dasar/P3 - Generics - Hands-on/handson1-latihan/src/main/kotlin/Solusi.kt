@@ -19,10 +19,7 @@ fun main() {
 }
 
 // Penjelasan:
-// - class Box<T>: T adalah type parameter, jadi Box bisa menyimpan tipe apa saja (Int, String, dll).
-// - fun <R> map: Fungsi generik dengan type parameter sendiri (R) untuk tipe hasil transformasi.
-// - (T) -> R: Tipe fungsi (lambda) yang menerima T dan menghasilkan R.
-// - Type inference: Kotlin menebak T dan R sendiri, jadi tidak perlu tulis Box<Int> atau map<String>.
-// - Trailing lambda: lambda ditaruh di luar kurung, misal map { ... }.
-// - it: Nama otomatis untuk parameter tunggal lambda.
-// - String template: $it menyisipkan nilai ke dalam string.
+// - T itu tipe isi Box, R itu tipe isi Box hasil map
+// - (T) -> R artinya lambda yang terima T dan balikin R
+// - map bikin Box baru, Box lama tidak berubah
+// - tipe T dan R ditebak sendiri sama Kotlin, tidak perlu ditulis

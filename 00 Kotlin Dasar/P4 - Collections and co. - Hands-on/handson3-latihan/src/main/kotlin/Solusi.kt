@@ -29,11 +29,7 @@ fun main() {
 }
 
 // Penjelasan:
-// - filter: Menyaring elemen, hanya yang kondisinya true yang lolos (di sini angka genap).
-// - it % 2 == 0: Sisa bagi 2 sama dengan 0 berarti genap.
-// - map: Mengubah tiap elemen (di sini dikuadratkan).
-// - take(5): Mengambil 5 elemen pertama saja.
-// - List (eager): Tiap operasi memproses SEMUA elemen dan membuat list perantara.
-// - asSequence(): Mengubah List menjadi Sequence yang lazy.
-// - Sequence (lazy): Elemen diproses satu per satu lewat seluruh pipeline, berhenti begitu take(5) terpenuhi.
-// - toList(): Operasi terminal, yang memicu pipeline Sequence benar-benar berjalan.
+// - List itu eager: filter jalan di 1 juta data dulu, baru map, baru take(5)
+// - Sequence itu lazy: tiap angka diproses satu-satu sampai dapat 5 hasil, lalu berhenti
+// - toList() dipakai biar pipeline Sequence-nya benar-benar jalan
+// - hasil keduanya sama, bedanya cuma di waktu proses

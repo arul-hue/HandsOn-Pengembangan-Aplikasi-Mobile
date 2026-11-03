@@ -21,13 +21,8 @@ fun main() {
     cetakRentangGanjil(10)
 }
 
-// Output:
-// Skor lulus (>= 70): [100, 90, 85, 72]
-// 1 3 5 7 9
-
 // Penjelasan:
-// - filterNotNull(): Membuang semua elemen null dari list, sehingga tipe hasilnya berubah dari List<Int?> menjadi List<Int> (aman dari null).
-// - filter { it >= batasLulus }: Menyaring elemen list dengan lambda, `it` mewakili tiap elemen. Hanya skor yang >= batasLulus yang lolos.
-// - sortedDescending(): Mengurutkan list dari nilai terbesar ke terkecil.
-// - 1..sampai step 2: Range inklusif dari 1 sampai `sampai`, `step 2` membuat loncatan 2 angka sehingga hanya bilangan ganjil yang muncul.
-// - print() dan println(): `print` mencetak tanpa pindah baris, `println` mencetak lalu pindah baris.
+// - filterNotNull() buang semua null, jadi List<Int?> berubah jadi List<Int>
+// - filter { it >= batasLulus } cuma ambil skor yang lulus, lalu sortedDescending() urut dari terbesar
+// - 1..sampai step 2 loncat 2 angka, jadi yang muncul ganjil saja
+// - print tidak pindah baris, println pindah baris

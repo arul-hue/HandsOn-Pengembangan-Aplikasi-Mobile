@@ -24,8 +24,7 @@ fun main() {
 }
 
 // Penjelasan:
-// - interface Payable: Kontrak yang hanya berisi fungsi abstrak calculateSalary() tanpa isi. Interface tidak boleh menyimpan state.
-// - data class: Otomatis menghasilkan equals(), hashCode(), toString(), componentN(), dan copy() dari property di primary constructor.
-// - : Payable + override: Class mengimplementasikan interface dan wajib meng-override fungsi abstraknya dengan isi nyata (baseSalary + bonus).
-// - copy(name = "Bob"): Menyalin object dengan mengubah sebagian property saja, sisanya tetap sama.
-// - ==: Pada data class, == memanggil equals() yang membandingkan ISI property, bukan alamat object di memori.
+// - interface cuma kontrak, isi fungsinya ditulis di class yang implement (pakai override)
+// - data class otomatis dapat equals, hashCode, toString, dan copy
+// - copy(name = "Bob") menyalin object tapi hanya mengubah name
+// - == di data class membandingkan isi property, bukan alamat memori

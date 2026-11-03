@@ -22,10 +22,7 @@ fun main() {
 }
 
 // Penjelasan:
-// - data class: Otomatis punya equals, hashCode, toString, copy. Cocok untuk data sederhana seperti Product.
-// - filter: Menyaring elemen list, hanya yang kondisinya true yang lolos.
-// - sortedBy: Mengurutkan list berdasarkan nilai tertentu (di sini harga), dari kecil ke besar.
-// - map: Mengubah tiap elemen menjadi bentuk lain (di sini Product menjadi String nama).
-// - Chaining: Hasil satu operasi langsung disambung ke operasi berikutnya.
-// - it: Nama otomatis untuk parameter tunggal lambda.
-// - List read-only: filter, sortedBy, dan map membuat list baru, list asli tidak berubah.
+// - filter: ambil produk yang harganya di atas minHarga
+// - sortedBy: urutkan dari harga termurah
+// - map: ambil namanya saja
+// - ketiganya disambung berurutan, dan list aslinya tidak berubah
