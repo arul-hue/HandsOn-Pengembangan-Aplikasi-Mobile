@@ -6,3 +6,6 @@
 
 # Hasil compile
 *.jar
+
+.idea/
+local.properties
