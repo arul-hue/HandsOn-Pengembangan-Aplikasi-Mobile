@@ -6,6 +6,8 @@
 
 # Hasil compile
 *.jar
+bin/
+build/
 
 .idea/
 local.properties
