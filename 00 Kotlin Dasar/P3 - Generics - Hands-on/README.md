@@ -11,27 +11,55 @@ Proyek Kotlin/JVM untuk 3 latihan praktikum Pertemuan 3 track **Kotlin Dasar** (
 
 ## Cara Menjalankan
 
-1. Buka folder **"P3 - Generics - Hands-on"** ini di Android Studio (`File > Open`) sebagai proyek Gradle terpisah.
-2. Tunggu proses Gradle sync selesai.
-3. Buka file `Latihan.kt` pada modul yang ingin dikerjakan, lengkapi bagian `TODO`.
-4. Klik ikon ▶️ di sebelah `fun main()` untuk menjalankan.
-5. Jika stuck, bandingkan dengan `Solusi.kt` pada modul `-solusi` yang berpasangan.
+`Latihan.kt` dan `Solusi.kt` berada berdampingan di
+`handson1-latihan/src/main/kotlin/` (demikian juga hands-on 2 dan 3).
+Folder modul tetap memakai nama `-latihan`; folder modul `-solusi` sudah digabung.
 
-Setiap latihan adalah modul Gradle terpisah, jadi latihan yang belum selesai (belum bisa di-compile) **tidak akan mengganggu** latihan atau solusi lain.
+Dari terminal dalam folder pertemuan ini (memerlukan Gradle 8.7 dan JDK 17/21):
+
+```powershell
+# Jalankan solusi hands-on 1 (pilihan bawaan).
+gradle :handson1-latihan:run
+
+# Jalankan latihan hands-on 1 setelah TODO dilengkapi.
+gradle :handson1-latihan:run -Pversi=latihan
+
+# Buat JAR solusi, termasuk dependency dan resource yang dibutuhkan.
+gradle :handson1-latihan:jar
+java -jar handson1-latihan/build/libs/handson1-latihan.jar
+```
+
+Ganti angka `1` menjadi `2` atau `3` sesuai hands-on. Gunakan `-Pversi=latihan`
+pada task `jar` jika ingin membuat JAR latihan; file JAR sebelumnya ditimpa.
+Gradle hanya mengompilasi satu versi, sehingga nama class/fungsi yang sama
+serta TODO latihan tidak mengganggu kompilasi solusi. Pilihan bawaan di IDE
+juga solusi; gunakan perintah terminal di atas untuk memilih latihan.
+
+Untuk contoh tanpa library tambahan, bisa langsung memakai compiler Kotlin.
+Buka terminal **di folder yang berisi `Solusi.kt`**, lalu:
+
+```powershell
+kotlinc Solusi.kt -include-runtime -d Solusi.jar
+java -jar Solusi.jar
+```
+
+Sebutkan satu file, jangan `*.kt`. Cara singkat ini tidak otomatis memasukkan
+library tambahan atau resource. Gunakan task Gradle `jar` untuk P7, P12,
+dan P10 hands-on 1/3. Detail lengkap ada di `CARA_MENJALANKAN.md` pada folder utama.
 
 ## Daftar Latihan
 
-### 1. `handson1-latihan` / `handson1-solusi` — Generic Class `Box<T>`
+### 1. `handson1-latihan` — file latihan dan solusi — Generic Class `Box<T>`
 Lengkapi class generik `Box<T>` dengan fungsi `map<R>(transform: (T) -> R): Box<R>` yang mentransformasikan isi Box menjadi Box baru bertipe berbeda.
 
 - **Konsep:** generic class, type parameter, type inference.
 
-### 2. `handson2-latihan` / `handson2-solusi` — Bounded Type Parameter
+### 2. `handson2-latihan` — file latihan dan solusi — Bounded Type Parameter
 Implementasikan `findMax` generik yang mencari nilai terbesar dari sebuah `List<T>`, dengan constraint `T : Comparable<T>` agar elemen bisa dibandingkan.
 
 - **Konsep:** bounded type parameter (upper bound), `Comparable<T>`.
 
-### 3. `handson3-latihan` / `handson3-solusi` — Variance (`out`)
+### 3. `handson3-latihan` — file latihan dan solusi — Variance (`out`)
 Tandai `Container<T>` dengan modifier variance yang tepat agar `Container<Cat>` bisa dianggap sebagai `Container<Animal>`.
 
 - **Catatan:** file `Latihan.kt` di modul ini **sengaja tidak bisa di-compile** sebelum kamu melengkapi TODO — itu bagian dari latihan.
