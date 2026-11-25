@@ -11,55 +11,27 @@ Proyek Kotlin/JVM untuk 3 latihan praktikum Pertemuan 5 track **Kotlin Dasar** (
 
 ## Cara Menjalankan
 
-`Latihan.kt` dan `Solusi.kt` berada berdampingan di
-`handson1-latihan/src/main/kotlin/` (demikian juga hands-on 2 dan 3).
-Folder modul tetap memakai nama `-latihan`; folder modul `-solusi` sudah digabung.
+1. Buka folder **"P5 - Functional Programming - Hands-on"** ini di Android Studio (`File > Open`) sebagai proyek Gradle terpisah.
+2. Tunggu proses Gradle sync selesai.
+3. Buka file `Latihan.kt` pada modul yang ingin dikerjakan, lengkapi bagian `TODO`.
+4. Klik ikon ▶️ di sebelah `fun main()` untuk menjalankan.
+5. Jika stuck, bandingkan dengan `Solusi.kt` pada modul `-solusi` yang berpasangan.
 
-Dari terminal dalam folder pertemuan ini (memerlukan Gradle 8.7 dan JDK 17/21):
-
-```powershell
-# Jalankan solusi hands-on 1 (pilihan bawaan).
-gradle :handson1-latihan:run
-
-# Jalankan latihan hands-on 1 setelah TODO dilengkapi.
-gradle :handson1-latihan:run -Pversi=latihan
-
-# Buat JAR solusi, termasuk dependency dan resource yang dibutuhkan.
-gradle :handson1-latihan:jar
-java -jar handson1-latihan/build/libs/handson1-latihan.jar
-```
-
-Ganti angka `1` menjadi `2` atau `3` sesuai hands-on. Gunakan `-Pversi=latihan`
-pada task `jar` jika ingin membuat JAR latihan; file JAR sebelumnya ditimpa.
-Gradle hanya mengompilasi satu versi, sehingga nama class/fungsi yang sama
-serta TODO latihan tidak mengganggu kompilasi solusi. Pilihan bawaan di IDE
-juga solusi; gunakan perintah terminal di atas untuk memilih latihan.
-
-Untuk contoh tanpa library tambahan, bisa langsung memakai compiler Kotlin.
-Buka terminal **di folder yang berisi `Solusi.kt`**, lalu:
-
-```powershell
-kotlinc Solusi.kt -include-runtime -d Solusi.jar
-java -jar Solusi.jar
-```
-
-Sebutkan satu file, jangan `*.kt`. Cara singkat ini tidak otomatis memasukkan
-library tambahan atau resource. Gunakan task Gradle `jar` untuk P7, P12,
-dan P10 hands-on 1/3. Detail lengkap ada di `CARA_MENJALANKAN.md` pada folder utama.
+Setiap latihan adalah modul Gradle terpisah, jadi latihan yang belum selesai (belum bisa di-compile) **tidak akan mengganggu** latihan atau solusi lain.
 
 ## Daftar Latihan
 
-### 1. `handson1-latihan` — file latihan dan solusi — Higher-Order Function
+### 1. `handson1-latihan` / `handson1-solusi` — Higher-Order Function
 Lengkapi fungsi `calculate(a, b, operation)` yang menjalankan `operation` terhadap dua angka, lalu panggil dengan lambda berbeda (tambah, kurang, kali) tanpa mengubah signature fungsinya.
 
 - **Konsep:** higher-order function, function type `(Int, Int) -> Int`, trailing lambda syntax.
 
-### 2. `handson2-latihan` — file latihan dan solusi — Lambda & Function Reference
+### 2. `handson2-latihan` / `handson2-solusi` — Lambda & Function Reference
 Bangun 2 pipeline `filter` + `map` terhadap list nama mahasiswa: satu memakai lambda inline, satu lagi memakai function reference (`::isEvenLength`, `::toUpper`). Hasil keduanya harus identik.
 
 - **Konsep:** lambda expression, function reference (`::`), functions sebagai first-class citizen.
 
-### 3. `handson3-latihan` — file latihan dan solusi — Closure (Counter Factory)
+### 3. `handson3-latihan` / `handson3-solusi` — Closure (Counter Factory)
 Implementasikan `makeCounter(): () -> Int` yang mengembalikan closure — sebuah lambda yang mengingat (capture) variabel `count` di luar scope `makeCounter`, dan bertambah setiap kali dipanggil.
 
 - **Catatan:** file `Latihan.kt` di modul ini **sengaja tidak bisa di-compile** sebelum kamu melengkapi TODO — itu bagian dari latihan.

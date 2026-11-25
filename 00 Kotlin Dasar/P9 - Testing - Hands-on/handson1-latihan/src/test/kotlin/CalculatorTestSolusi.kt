@@ -1,0 +1,61 @@
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.DisplayName
+import org.junit.jupiter.api.Test
+
+// Hands-on 1: Unit Test Dasar (pola Arrange-Act-Assert)
+// Tugas: Lengkapi ketiga test di bawah mengikuti pola AAA:
+//   Arrange -> siapkan data/objek yang dibutuhkan
+//   Act     -> panggil method yang diuji
+//   Assert  -> verifikasi hasilnya dengan assertEquals(expected, actual)
+
+class CalculatorTest {
+
+    private val calculator = Calculator()
+
+    @Test
+    @DisplayName("Penjumlahan dua bilangan positif")
+    fun testAdd() {
+        // Arrange
+        val a = 2
+        val b = 3
+
+        // Act
+        val hasil = calculator.add(a, b)
+
+        // Assert
+        assertEquals(5, hasil)
+    }
+
+    @Test
+    @DisplayName("Pengurangan yang menghasilkan angka negatif")
+    fun testSubtractNegativeResult() {
+        // Arrange
+        val a = 3
+        val b = 5
+
+        // Act
+        val hasil = calculator.subtract(a, b)
+
+        // Assert
+        assertEquals(-2, hasil)
+    }
+
+    @Test
+    @DisplayName("Pembagian dua bilangan bulat")
+    fun testDivide() {
+        // Arrange
+        val a = 10
+        val b = 2
+
+        // Act
+        val hasil = calculator.divide(a, b)
+
+        // Assert
+        assertEquals(5, hasil)
+    }
+}
+
+// Penjelasan:
+// - Setiap test mengikuti pola Arrange-Act-Assert: siapkan input, panggil method yang diuji, lalu verifikasi dengan assertEquals(expected, actual).
+// - assertEquals menerima argumen pertama sebagai nilai yang DIHARAPKAN (expected) dan kedua sebagai hasil aktual.
+// - private val calculator dibuat sekali per instance test; JUnit membuat instance test class baru untuk setiap @Test.
