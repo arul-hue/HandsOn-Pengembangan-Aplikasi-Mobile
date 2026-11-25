@@ -24,5 +24,9 @@ tasks.register("printProjectInfo") {
         // TODO 3: Cetak versi Gradle yang sedang menjalankan build ini
         //   lewat `gradle.gradleVersion`.
         //   Contoh: println("Versi Gradle: " + gradle.gradleVersion)
+
+        println("Nama project: " + project.name)
+        println("Versi project: " + project.version)
+        println("Versi Gradle: " + gradle.gradleVersion)
     }
 }
